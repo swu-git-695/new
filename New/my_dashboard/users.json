@@ -1,37 +1,11 @@
-import streamlit as st
-import json
-import os
-
-USER_FILE = "users.json"
-
-if not os.path.exists(USER_FILE):
-    with open(USER_FILE, "w") as f:
-        json.dump({}, f)
-
-def load_users():
-    with open(USER_FILE, "r") as f:
-        return json.load(f)
-
-users = load_users()
-
-st.title("Login")
-
-username = st.text_input("Username")
-password = st.text_input("Password", type="password")
-
-if st.button("Login"):
-    if username in users:
-        # ตรวจสอบว่า users[username] เป็น string หรือ dict
-        if isinstance(users[username], str):
-            correct_pw = users[username]
-        elif isinstance(users[username], dict):
-            correct_pw = users[username].get("password", "")
-        else:
-            correct_pw = ""
-
-        if password == correct_pw:
-            st.success(f"Welcome {username}!")
-        else:
-            st.error("Password ไม่ถูกต้อง")
-    else:
-        st.error("ไม่พบ Username นี้")
+{
+  "Inn": "Arisara2547",
+  "Inndy": {
+    "email": "arisara0650473928@gmail.com",
+    "password": "Arisara2547"
+  },
+  "p": {
+    "email": "arisara.inn@g.swu.ac.th",
+    "password": "Inn2547"
+  }
+}
