@@ -12,7 +12,8 @@ def rerun():
     raise RerunException(get_script_run_ctx())
 
 # ==== ฟังก์ชันจัดการไฟล์ users.json ====
-USER_FILE = "users.json"
+USER_FILE = os.path.join(os.path.dirname(__file__), "..", "..", "users.json")
+USER_FILE = os.path.abspath(USER_FILE)
 if not os.path.exists(USER_FILE):
     with open(USER_FILE, "w") as f:
         json.dump({}, f)
