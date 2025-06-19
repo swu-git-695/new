@@ -179,6 +179,7 @@ if not st.session_state.logged_in:
                     st.error("❌ ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง")
             if st.button("📌 สมัครสมาชิก"):
                 st.session_state.page = "signup"
+                st.rerun()
 
         elif st.session_state.page == "signup":
             st.markdown("<h2 style='text-align:center; color:#4a90e2;'>📝 สมัครสมาชิกใหม่</h2>", unsafe_allow_html=True)
@@ -220,6 +221,7 @@ st.sidebar.markdown(f"👤 ผู้ใช้: **{st.session_state.username}**")
 if st.sidebar.button("🚪 ออกจากระบบ"):
     st.session_state.logged_in = False
     st.session_state.username = None
+    st.rerun()
 
 if menu == "หน้าแรก":
     st.markdown(f"""
