@@ -202,6 +202,7 @@ if not st.session_state.logged_in:
                     st.error("ชื่อผู้ใช้นี้มีอยู่แล้ว")
             if st.button("← กลับเข้าสู่ระบบ"):
                 st.session_state.page = "login"
+                st.rerun()
     st.stop()
 
 # ==== ส่วนของหน้าเว็บหลัง login ==== 
