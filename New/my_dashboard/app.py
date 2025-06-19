@@ -173,12 +173,10 @@ if not st.session_state.logged_in:
                     st.session_state.logged_in = True
                     st.session_state.username = user
                     st.success("✅ เข้าสู่ระบบสำเร็จ")
-                    rerun()
                 else:
                     st.error("❌ ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง")
             if st.button("📌 สมัครสมาชิก"):
                 st.session_state.page = "signup"
-                rerun()
 
         elif st.session_state.page == "signup":
             st.markdown("<h2 style='text-align:center; color:#4a90e2;'>📝 สมัครสมาชิกใหม่</h2>", unsafe_allow_html=True)
@@ -195,12 +193,10 @@ if not st.session_state.logged_in:
                 elif signup(new_user.strip(), new_email.strip(), new_pass.strip()):
                     st.success("✅ สมัครสำเร็จ! กรุณาเข้าสู่ระบบ")
                     st.session_state.page = "login"
-                    rerun()
                 else:
                     st.error("ชื่อผู้ใช้นี้มีอยู่แล้ว")
             if st.button("← กลับเข้าสู่ระบบ"):
                 st.session_state.page = "login"
-                rerun()
     st.stop()
 
 # ==== ส่วนของหน้าเว็บหลัง login ==== 
@@ -220,7 +216,6 @@ st.sidebar.markdown(f"👤 ผู้ใช้: **{st.session_state.username}**")
 if st.sidebar.button("🚪 ออกจากระบบ"):
     st.session_state.logged_in = False
     st.session_state.username = None
-    rerun()
 
 if menu == "หน้าแรก":
     st.markdown(f"""
