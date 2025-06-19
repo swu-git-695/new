@@ -173,6 +173,7 @@ if not st.session_state.logged_in:
                     st.session_state.logged_in = True
                     st.session_state.username = user
                     st.success("✅ เข้าสู่ระบบสำเร็จ")
+                    st.experimental_rerun()  
                 else:
                     st.error("❌ ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง")
             if st.button("📌 สมัครสมาชิก"):
@@ -193,6 +194,7 @@ if not st.session_state.logged_in:
                 elif signup(new_user.strip(), new_email.strip(), new_pass.strip()):
                     st.success("✅ สมัครสำเร็จ! กรุณาเข้าสู่ระบบ")
                     st.session_state.page = "login"
+                    st.experimental_rerun()  
                 else:
                     st.error("ชื่อผู้ใช้นี้มีอยู่แล้ว")
             if st.button("← กลับเข้าสู่ระบบ"):
